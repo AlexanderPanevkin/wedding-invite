@@ -1,12 +1,12 @@
-.timing {
-  background-image: url('/src/assets/estate.png.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+.timing-wrapper {
+  width: fit-content;
+  height: fit-content;
+  position: relative; // Точка отсчета для дочерних absolute-элементов
+  display: block;
+  max-width: 400px;   // Ограничиваем ширину основного блока
+  margin: 0 auto;     // Центрируем по горизонтали
+  // overflow: visible; // По умолчанию, но можно добавить явно, если где-то выше задан hidden
 }
-
 .timing-image {
   height: auto;    // Сохраняет пропорции
   width: 95%;
@@ -17,4 +17,18 @@
   margin: -32px auto;
   transform: translateX(-7px);
 
+}
+
+.car {
+  position: absolute;
+  max-width:50%;
+  top: 82px;
+  left: 138px
+}
+
+.cloud {
+  max-width:70%;
+  position: absolute;
+  bottom: -50px;  // Насколько вылезает вниз
+  left: -30px;
 }

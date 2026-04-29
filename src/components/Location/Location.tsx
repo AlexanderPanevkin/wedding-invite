@@ -6,11 +6,14 @@ import './Location.scss';
 export const Location = () => {
     return (
         <div className="location">
-            <img
-                src={placeText}
-                alt="Место проведения"
-                className="placeText"
-            />
+            <div className="placeText">
+                <img
+                    src={placeText}
+                    alt="Место проведения"
+                    className="placeTextImg"
+                />
+            </div>
+
             <img
                 src={address}
                 alt="Адрес проведения"
