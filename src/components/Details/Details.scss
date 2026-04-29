@@ -1,0 +1,22 @@
+.details-wrapper {
+  background-image: url('/src/assets/estate.png.webp');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  .details {
+    height: auto;    // Сохраняет пропорции
+
+    // 2. Ограничение ширины на больших экранах (чтобы фото не было слишком растянутым)
+    // Можете менять 800px на нужное вам значение (например, 600px или 1000px)
+    width: 100%;
+    max-width: 460px;
+
+    // 3. Центрирование самой картинки внутри родительского блока
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+}
+

@@ -1,39 +1,6 @@
 import placeText from "../../assets/placeText.png.webp";
 import address from "../../assets/address.png.webp";
-
 import './Location.scss';
-
-// export const Location = () => {
-//     return (
-//         <div className="location">
-//             <div className="placeText">
-//                 <img
-//                     src={placeText}
-//                     alt="Место проведения"
-//                     className="placeTextImg"
-//                 />
-//             </div>
-//             <div className="address-wrapper">
-//                 <img
-//                     src={address}
-//                     alt="Адрес проведения"
-//                     className="address"
-//                 />
-//                    <div className="map-wrapper">
-//                     <iframe
-//                         src="https://yandex.by/map-widget/v1/?ll=27.124638%2C53.740723&z=15&pt=27.124638,53.740723"
-//                         width="40%"
-//                         height="450"
-//                         allowFullScreen={true}
-//                         title="Карта места проведения"
-//                         className="location-map"
-//                     ></iframe>
-//                 </div>
-//             </div>
-//
-//         </div>
-//     )
-// }
 
 export const Location = () => {
     return (
@@ -59,32 +26,28 @@ export const Location = () => {
                         />
                     </div>
 
-                    {/* Кликабельная карта */}
+                    {/* Карта и кнопка внутри одного контекста */}
                     <div className="map-block">
-                        <a
-                            href="https://yandex.by/maps/-/CPSqYX-G"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="map-link"
-                        >
-                            <div className="map-wrapper">
-                                <iframe
-                                    src="https://yandex.by/map-widget/v1/?ll=27.124638%2C53.740723&z=15&pt=27.124638,53.740723"
-                                    width="100%"
-                                    height="100%"
-                                    frameBorder="0"
-                                    allowFullScreen={true}
-                                    title="Карта места проведения"
-                                    className="location-map"
-                                    loading="lazy"
-                                ></iframe>
+                        <div className="map-wrapper">
+                            <iframe
+                                src="https://yandex.by/map-widget/v1/?ll=27.124638%2C53.740723&z=15&pt=27.124638,53.740723"
+                                width="100%"
+                                height="100%"
+                                allowFullScreen={true}
+                                title="Карта места проведения"
+                                className="location-map"
+                                loading="lazy"
+                            ></iframe>
 
-                                {/* Подсказка о кликабельности */}
-                                <div className="map-hint">
-                                    <span> Нажмите, чтобы открыть карту</span>
-                                </div>
-                            </div>
-                        </a>
+                          //  <a
+                                href="https://yandex.by/maps/-/CPSqYX-G"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="map-nav-btn"
+                            >
+                                Нажмите чтобы открыть карту
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
