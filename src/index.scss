@@ -1,0 +1,52 @@
+//* {
+//  box-sizing: border-box;
+//  margin: 0;
+//  padding: 0;
+//}
+//
+//body {
+//  font-family: 'Inter', sans-serif; /* Здесь будет ваш шрифт */
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//}
+/* src/index.scss */
+
+// 1. Сброс стилей
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif; // Ваш основной шрифт
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #faf9f3; // Цвет фона всего сайта
+  color: #333333; // Основной цвет текста
+  line-height: 1.5;
+}
+
+// 2. Глобальный контейнер (Центрирование блоков)
+.container {
+  width: 100%;
+  max-width: 1140px; // Максимальная ширина контента на больших экранах
+  margin: 0 auto;    // Центрирование по горизонтали
+  padding: 0 20px;   // Безопасные отступы по краям, чтобы текст не прилипал к экрану телефона
+}
+
+// 3. Общие стили для секций (блоков)
+section {
+  padding: 60px 0; // Отступы сверху и снизу у каждого блока
+
+  @media (min-width: 768px) {
+    padding: 100px 0; // На компьютерах отступы больше
+  }
+}
+
+// 4. Адаптивные изображения (чтобы картинки не вылезали за экран)
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; // Убирает лишний отступ снизу у картинок
+}

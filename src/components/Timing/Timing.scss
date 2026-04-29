@@ -1,0 +1,20 @@
+.timing {
+  background-image: url('/src/assets/estate.png.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.timing-image {
+  height: auto;    // Сохраняет пропорции
+  width: 95%;
+  max-width: 380px;
+
+  // 3. Центрирование самой картинки внутри родительского блока
+  display: block;
+  margin: -32px auto;
+  transform: translateX(-7px);
+
+}

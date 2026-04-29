@@ -1,0 +1,10 @@
+.app {
+  width: 100%;
+  overflow-x: hidden; /* Предотвращает горизонтальный скролл */
+}
+.timing {
+    background-image: url('/src/assets/estate.png.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
