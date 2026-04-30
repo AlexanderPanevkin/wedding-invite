@@ -1,34 +1,52 @@
 .timing-wrapper {
   width: fit-content;
   height: fit-content;
-  position: relative; // Точка отсчета для дочерних absolute-элементов
+  position: relative;
   display: block;
-  max-width: 400px;   // Ограничиваем ширину основного блока
-  margin: 0 auto;     // Центрируем по горизонтали
-  // overflow: visible; // По умолчанию, но можно добавить явно, если где-то выше задан hidden
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: visible;
 }
+
 .timing-image {
-  height: auto;    // Сохраняет пропорции
+  height: auto;
   width: 95%;
   max-width: 380px;
-
-  // 3. Центрирование самой картинки внутри родительского блока
   display: block;
-  margin: -32px auto;
+  margin: -32px 17px auto;
   transform: translateX(-7px);
-
 }
 
 .car {
   position: absolute;
-  max-width:50%;
-  top: 82px;
-  left: 138px
+  width: 130px;
+  max-width: 100%;
+  z-index: 10;
+
+  /* Стартовые позиции для ДЕСКТОПА */
+  top: 85px;
+  left: 150px;
+
+  @media (max-width: 768px) {
+    width: 90px;
+    /* Стартовые позиции для МОБИЛЬНЫХ */
+    top: 110px;
+    left: 145px;
+  }
 }
 
 .cloud {
-  max-width:70%;
+  max-width: 70%;
   position: absolute;
-  bottom: -50px;  // Насколько вылезает вниз
-  left: -30px;
+  bottom: -50px;
+  left: -80px;
+  z-index: 5;
+  opacity: 0.9;
+  filter: blur(1px);
+
+  @media (max-width: 768px) {
+    max-width: 50%;
+    bottom: -30px;
+    left: -40px;
+  }
 }
