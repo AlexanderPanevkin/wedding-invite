@@ -1,0 +1,32 @@
+.footer {
+  padding: 30px 0; // Отступы сверху и снизу, чтобы блок имел высоту
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    // Используем flex для центрирования картинки
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-img {
+    width: 100%;       // Картинка растягивается на всю доступную ширину
+    max-width: 600px;  // Но не больше 600px
+    height: auto;      // Сохраняет пропорции
+    display: block;    // Убирает лишние отступы снизу у inline-элементов
+  }
+}
+
+// Адаптив для мобильных
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0;
+
+    .footer-img {
+      max-width: 90%; // На телефонах можно сделать чуть шире относительно экрана
+    }
+  }
+}
