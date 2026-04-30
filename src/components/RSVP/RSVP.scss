@@ -1,128 +1,237 @@
 .rsvp-section {
-  padding: 20px 0 60px; // Добавил отступ снизу для воздуха
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  color: #2C2C2C;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  overflow: hidden;
 
   .container {
     max-width: 900px;
-    margin: 0 auto; // Вернул центрирование контейнера
-    padding: 0 15px;
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
   }
 
   .rsvp-title {
     display: flex;
     justify-content: center;
-    //margin-bottom: 20px;
 
-    img {
+    @media (max-width: 992px) {
+      margin-bottom: -20px;
+    }
+
+    .rsvp-title-img {
       max-width: 100%;
       height: auto;
+      max-height: 150px;
     }
   }
 
-  // 🔥 Обертка для позиционирования рамки
+  .rsvp-content-wrapper {
+    width: 100%;
+    transition: filter 0.5s ease;
+
+    &.blurred {
+      filter: blur(8px);
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
   .rsvp-wrapper {
     position: relative;
     width: 100%;
-    // Базовые отступы для десктопа (подстраивайте под размер вашей картинки-рамки)
     padding: 140px 170px;
 
-    @media (max-width: 768px) {
-      // На мобильных убираем рамку, поэтому отступы делаем минимальными
+    @media (max-width: 992px) {
       padding: 20px 15px;
     }
   }
 
-  // 🔥 Картинка-рамка
   .rsvp-frame {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: fill; // Растягиваем точно по блоку
+    object-fit: fill;
     z-index: 1;
     pointer-events: none;
 
-    // Скрываем рамку на планшетах и телефонах, так как она может плохо масштабироваться
     @media (max-width: 992px) {
       display: none;
     }
   }
 
-  // 🔥 Сама форма
   .rsvp-form {
     position: relative;
     z-index: 2;
-
-    // Фон формы (если рамка прозрачная или её нет)
-    //background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-
-    // Отступы внутри формы
-    padding: 60px;
-
+    padding: 50px 60px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 60px;
 
-    // Адаптив отступов формы
     @media (max-width: 992px) {
-      padding: 30px 20px; // Меньше отступы, когда нет рамки
+      padding: 30px 20px;
+      gap: 25px;
     }
 
     @media (max-width: 480px) {
-      padding: 20px 15px; // Совсем компактно на маленьких телефонах
+      padding: 20px 15px;
       gap: 20px;
     }
   }
 
-  // Стили полей ввода
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 5px;
+    padding-bottom: 20px;
 
     label {
       font-weight: 600;
       color: #444;
-      font-size: 0.95rem;
     }
 
     input[type="text"],
     select,
     textarea {
-      padding: 14px 16px; // Чуть выше поле для удобства нажатия пальцем
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: #fff;
-      width: 100%; // Гарантируем ширину
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      background: transparent;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      transition: border-color 0.3s ease;
+      border-radius: 0;
 
       &:focus {
         outline: none;
+        border-bottom-color: #d4af37;
+        border-bottom-width: 2px;
+      }
+
+      &::placeholder {
+        color: #bbb;
+        font-style: italic;
+        font-family: 'Lato', sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0;
+      }
+    }
+
+    select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+  }
+
+  .radio-options {
+    display: flex;
+    gap: 30px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .transfer-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+
+    input {
+      display: none;
+    }
+
+    .radio-custom {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      position: relative;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .radio-custom::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #d4af37;
+      transition: transform 0.2s ease;
+    }
+
+    .radio-text {
+      font-size: 1rem;
+      color: #555;
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    &:hover .radio-text {
+      color: #333;
+    }
+
+    &.selected,
+    &:has(input:checked) {
+      .radio-custom {
         border-color: #d4af37;
-        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        &::after {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      .radio-text {
+        color: #d4af37;
+        font-weight: 600;
       }
     }
   }
 
-  // Стили для карточек алкоголя
   .alcohol-options {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); // По умолчанию 2 колонки (мобильные)
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
 
-    // На средних экранах 3 колонки
     @media (min-width: 500px) {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    // На больших экранах 4 или 6 колонок
     @media (min-width: 768px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    @media (min-width: 1024px) {
-      // Если экран очень широкий, можно сделать 6 в ряд, но 4 обычно оптимально
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -133,13 +242,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 5px;
-    border: 2px solid #eee;
-    border-radius: 10px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: #fff;
-    min-height: 80px; // Фиксируем минимальную высоту для ровной сетки
+    background: transparent;
+    min-height: 80px;
 
     input {
       position: absolute;
@@ -149,22 +257,31 @@
     }
 
     .alcohol-icon {
-      font-size: 2rem;
-      margin-bottom: 5px;
-      line-height: 1;
+      margin-bottom: 8px;
+      color: #ccc;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .alcohol-name {
-      font-size: 0.8rem;
-      color: #555;
+      font-size: 0.9rem;
+      color: #888;
       text-align: center;
       line-height: 1.2;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    &:hover {
+      .alcohol-icon { color: #999; }
+      .alcohol-name { color: #555; }
     }
 
     &.active,
     &:has(input:checked) {
-      border-color: #d4af37;
-      background: #fffbf0;
+      background: transparent;
 
       .alcohol-name {
         color: #d4af37;
@@ -172,372 +289,131 @@
       }
 
       .alcohol-icon {
+        color: #d4af37;
         transform: scale(1.1);
       }
     }
   }
 
-  // Радио кнопки трансфера
-  .radio-group {
-    display: flex;
-    flex-wrap: wrap; // Чтобы переносились на новую строку если не влезают
-    gap: 15px;
-
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      padding: 10px 15px;
-      border: 1px solid #eee;
-      border-radius: 20px;
-      background: #fff;
-      transition: all 0.2s;
-
-      &:hover {
-        border-color: #d4af37;
-      }
-
-      input {
-        accent-color: #d4af37;
-        width: 18px;
-        height: 18px;
-      }
-    }
-  }
-
-  // Кнопка отправки
   .submit-btn {
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 18px;
-    background: linear-gradient(135deg, #333 0%, #555 100%); // Исправил градиент на нейтральный темный, т.к. предыдущий был странным
+    background: #595757;
     color: #fff;
     border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%; // Кнопка на всю ширину на мобильных смотрится лучше
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      background: linear-gradient(135deg, #000 0%, #333 100%);
+    @media (max-width: 768px) {
+      margin-top: 0;
     }
 
-    &:active {
-      transform: translateY(-1px);
+    &:hover {
+      background: #d4af37;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
   }
 
-  // Сообщение об успехе
-  .rsvp-success {
+  .label-error {
+    color: #d32f2f !important;
+  }
+
+  .field-error-msg {
+    margin-top: 8px;
+    color: #d32f2f;
+    font-size: 0.85rem;
+    font-style: italic;
+    animation: fadeIn 0.4s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &::before {
+      content: '!';
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      background-color: #d32f2f;
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: bold;
+      font-style: normal;
+    }
+  }
+
+  .error-msg {
+    color: #D32F2F;
     text-align: center;
-    padding: 40px 20px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+
+  .success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .success-modal {
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-top: 20px;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #eee;
 
     h2 {
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
       color: #333;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.5;
     }
   }
 }
-//
-//.rsvp-section {
-//  padding: 20px 0 80px; // Отступ снизу для воздуха
-//  //background-color: #f9f9f9; // Легкий фон секции
-//
-//  .container {
-//    max-width: 900px;
-//    margin: 0 auto;
-//    padding: 0 15px;
-//  }
-//
-//  // Заголовок-картинка
-//  .rsvp-title {
-//    display: flex;
-//    justify-content: center;
-//    margin-bottom: 30px;
-//
-//    .rsvp-title-img {
-//      max-width: 100%;
-//      height: auto;
-//      max-height: 150px; // Ограничение высоты заголовка
-//    }
-//  }
-//
-//  // 🔥 Обертка для позиционирования рамки
-//  .rsvp-wrapper {
-//    position: relative;
-//    width: 100%;
-//
-//    // ВАЖНО: Эти отступы определяют "внутреннюю область" рамки.
-//    // Подстройте 140px (верх/низ) и 170px (лево/право) под толщину узоров на вашей картинке RSVP.png.webp
-//    padding: 140px 170px;
-//
-//    @media (max-width: 992px) {
-//      // На планшетах и мобильных рамка скрывается, поэтому отступы делаем стандартными
-//      padding: 20px 15px;
-//    }
-//  }
-//
-//  // 🔥 Картинка-рамка
-//  .rsvp-frame {
-//    position: absolute;
-//    top: 0;
-//    left: 0;
-//    width: 100%;
-//    height: 100%;
-//    object-fit: fill; // Растягиваем картинку точно по блоку wrapper
-//    z-index: 1;       // Рамка лежит под формой
-//    pointer-events: none; // Клики проходят сквозь картинку к форме
-//
-//    // Скрываем рамку на экранах меньше 992px
-//    @media (max-width: 992px) {
-//      display: none;
-//    }
-//  }
-//
-//  // 🔥 Сама форма
-//  .rsvp-form {
-//    position: relative;
-//    z-index: 2; // Форма выше рамки
-//
-//    //background: rgba(255, 255, 255, 0.95); // Полупрозрачный белый фон для читаемости
-//    border-radius: 12px;
-//    //box-shadow: 0 10px 30px rgba(0,0,0,0.05); // Легкая тень
-//
-//    padding: 40px; // Внутренние отступы полей от краев белого фона
-//
-//    display: flex;
-//    flex-direction: column;
-//    gap: 25px;
-//
-//    // Адаптив внутренних отступов формы
-//    @media (max-width: 992px) {
-//      padding: 30px 20px;
-//    }
-//
-//    @media (max-width: 480px) {
-//      padding: 20px 15px;
-//      gap: 20px;
-//    }
-//  }
-//
-//  // Стили полей ввода
-//  .form-group {
-//    display: flex;
-//    flex-direction: column;
-//    gap: 8px;
-//
-//    label {
-//      font-weight: 600;
-//      color: #444;
-//      font-size: 0.95rem;
-//      margin-left: 4px;
-//    }
-//
-//    input[type="text"],
-//    select,
-//    textarea {
-//      padding: 14px 16px;
-//      //border: 1px solid #ddd;
-//      border-radius: 8px;
-//      font-size: 1rem;
-//      background: #fff;
-//      width: 100%;
-//      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-//      font-family: inherit;
-//
-//      &:focus {
-//        outline: none;
-//        border-color: #d4af37; // Золотой цвет при фокусе
-//        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-//      }
-//    }
-//
-//    textarea {
-//      resize: vertical;
-//    }
-//  }
-//
-//  // Стили для карточек алкоголя (Сетка)
-//  .alcohol-options {
-//    display: grid;
-//    grid-template-columns: repeat(2, 1fr); // Мобильные: 2 колонки
-//    gap: 12px;
-//
-//    @media (min-width: 500px) {
-//      grid-template-columns: repeat(3, 1fr); // Планшеты: 3 колонки
-//    }
-//
-//    @media (min-width: 768px) {
-//      grid-template-columns: repeat(4, 1fr); // Десктоп: 4 колонки
-//    }
-//  }
-//
-//  .alcohol-card {
-//    position: relative;
-//    display: flex;
-//    flex-direction: column;
-//    align-items: center;
-//    justify-content: center;
-//    padding: 15px 10px;
-//    border: 2px solid #eee;
-//    border-radius: 12px;
-//    cursor: pointer;
-//    transition: all 0.2s ease;
-//    background: #fff;
-//    min-height: 100px; // Фиксируем высоту для ровной сетки
-//
-//    // Скрываем стандартный чекбокс
-//    input {
-//      position: absolute;
-//      opacity: 0;
-//      width: 0;
-//      height: 0;
-//    }
-//
-//    // Контейнер для иконки (SVG из react-icons)
-//    .alcohol-icon {
-//      margin-bottom: 10px;
-//      color: #888; // Цвет неактивной иконки (серый)
-//      transition: all 0.2s ease;
-//      display: flex;
-//      align-items: center;
-//      justify-content: center;
-//
-//      // SVG иконки наследуют цвет текста, поэтому font-size не работает напрямую,
-//      // размер задается в пропсах компонента (size={32})
-//    }
-//
-//    .alcohol-name {
-//      font-size: 0.85rem;
-//      color: #555;
-//      text-align: center;
-//      line-height: 1.2;
-//      font-weight: 500;
-//      transition: color 0.2s ease;
-//    }
-//
-//    // Состояние при наведении
-//    &:hover {
-//      border-color: #d4af37;
-//      background: #fffbf0;
-//
-//      .alcohol-icon {
-//        transform: scale(1.1);
-//      }
-//    }
-//
-//    // Активное состояние (выбрано)
-//    &.active,
-//    &:has(input:checked) {
-//      border-color: #d4af37;
-//      background: #fffbf0;
-//      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-//
-//      .alcohol-name {
-//        color: #d4af37;
-//        font-weight: 700;
-//      }
-//
-//      // Красим SVG иконку в золотой при выборе
-//      .alcohol-icon {
-//        color: #d4af37;
-//        transform: scale(1.15);
-//      }
-//    }
-//  }
-//
-//  // Радио кнопки трансфера
-//  .radio-group {
-//    display: flex;
-//    flex-wrap: wrap;
-//    gap: 10px;
-//
-//    .radio-label {
-//      display: flex;
-//      align-items: center;
-//      gap: 8px;
-//      cursor: pointer;
-//      padding: 10px 16px;
-//      border: 1px solid #eee;
-//      border-radius: 25px;
-//      background: #fff;
-//      transition: all 0.2s;
-//      font-size: 0.9rem;
-//
-//      &:hover {
-//        border-color: #d4af37;
-//        background: #fffbf0;
-//      }
-//
-//      input {
-//        accent-color: #d4af37; // Цвет кружочка
-//        width: 18px;
-//        height: 18px;
-//        margin: 0;
-//      }
-//    }
-//  }
-//
-//  // Кнопка отправки
-//  .submit-btn {
-//    margin-top: 15px;
-//    padding: 18px;
-//    background: linear-gradient(135deg, #333 0%, #555 100%);
-//    color: #fff;
-//    border: none;
-//    border-radius: 30px;
-//    font-size: 1.1rem;
-//    font-weight: 700;
-//    cursor: pointer;
-//    transition: transform 0.2s ease, box-shadow 0.2s ease;
-//    width: 100%;
-//    text-transform: uppercase;
-//    letter-spacing: 1px;
-//
-//    &:hover {
-//      transform: translateY(-3px);
-//      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-//      background: linear-gradient(135deg, #000 0%, #333 100%);
-//    }
-//
-//    &:active {
-//      transform: translateY(-1px);
-//    }
-//  }
-//
-//  // Сообщение об успехе
-//  .rsvp-success {
-//    text-align: center;
-//    padding: 60px 20px;
-//    background: #fff;
-//    border-radius: 16px;
-//    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-//    margin-top: 20px;
-//    animation: fadeIn 0.5s ease-in-out;
-//
-//    h2 {
-//      margin-bottom: 15px;
-//      color: #333;
-//      font-size: 2rem;
-//    }
-//
-//    p {
-//      font-size: 1.1rem;
-//      color: #666;
-//    }
-//  }
-//}
-//
-//// Анимация появления сообщения об успехе
-//@keyframes fadeIn {
-//  from { opacity: 0; transform: translateY(20px); }
-//  to { opacity: 1; transform: translateY(0); }
-//}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+body.no-scroll {
+  overflow: hidden;
+}

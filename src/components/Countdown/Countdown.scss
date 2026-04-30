@@ -4,8 +4,13 @@
 
   .container {
     max-width: 1200px;
-    margin: -30px auto;
-    //padding: 0 20px;
+    margin: -40px auto auto auto;
+
+    .row {
+      display: flex;
+      justify-content: center;
+    }
+
     .ring {
       height: auto;    // Сохраняет пропорции
 
@@ -16,16 +21,14 @@
 
       // 3. Центрирование самой картинки внутри родительского блока
       display: block;
-      margin: 0 auto 20px auto;
+      //margin: -20 auto auto auto;
 
       // 5. Отступы вокруг картинки (чтобы текст сверху/снизу не прилипал)
-    }
-    @media (max-width: 768px) {
-      margin-top: -70px;
     }
   }
 
   .countdown-title {
+
     font-size: 2rem;
     color: #333;
     margin-bottom: 40px;

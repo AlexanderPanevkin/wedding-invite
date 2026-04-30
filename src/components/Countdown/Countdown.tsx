@@ -43,7 +43,7 @@ export const Countdown = () => {
     return (
         <section className="countdown-section">
             <div className="container">
-                <div>
+                <div className="row">
                     <img
                         src={ring}
                         alt="До свадьбы осталось"
