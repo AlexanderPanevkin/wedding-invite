@@ -1,0 +1,98 @@
+.countdown-section {
+  padding: 0;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: -30px auto;
+    //padding: 0 20px;
+    .ring {
+      height: auto;    // Сохраняет пропорции
+
+      // 2. Ограничение ширины на больших экранах (чтобы фото не было слишком растянутым)
+      // Можете менять 800px на нужное вам значение (например, 600px или 1000px)
+      width: 100%;
+      max-width: 600px;
+
+      // 3. Центрирование самой картинки внутри родительского блока
+      display: block;
+      margin: 0 auto 20px auto;
+
+      // 5. Отступы вокруг картинки (чтобы текст сверху/снизу не прилипал)
+    }
+    @media (max-width: 768px) {
+      margin-top: -70px;
+    }
+  }
+
+  .countdown-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 300; // Тонкий шрифт выглядит элегантнее
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+  }
+
+  .timer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  .timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+
+    @media (max-width: 768px) {
+      min-width: 60px;
+    }
+  }
+
+  .timer-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.49); // Золотой цвет цифр
+    line-height: 1;
+    font-family: 'Playfair Display', serif; // Если у вас подключен этот шрифт
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .timer-label {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 0.7rem;
+      margin-top: 5px;
+    }
+  }
+
+  .timer-separator {
+    font-size: 3rem;
+    color: #ddd;
+    font-weight: 300;
+    margin-top: -20px; // Чуть поднимем двоеточие
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin-top: -10px;
+    }
+  }
+}

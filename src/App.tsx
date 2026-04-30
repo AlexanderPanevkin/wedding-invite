@@ -6,6 +6,7 @@ import {Location} from './components/Location/Location';
 import {Details} from './components/Details/Details';
 import {RSVP} from './components/RSVP/RSVP';
 import {Footer} from './components/Footer/Footer';
+import {Countdown} from "./components/Countdown/Countdown.tsx";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <Location/>
             <Details/>
             <RSVP/>
+            <Countdown/>
             <Footer/>
         </main>
     );
