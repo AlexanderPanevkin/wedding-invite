@@ -7,21 +7,25 @@ import {Details} from './components/Details/Details';
 import {RSVP} from './components/RSVP/RSVP';
 import {Footer} from './components/Footer/Footer';
 import {Countdown} from "./components/Countdown/Countdown.tsx";
+import {Welcome} from './components/Welcome/Welcome';
 
 function App() {
     return (
-        <main className="app">
-            <Hero/>
-            <div className="timing">
-                <Calendar/>
-                <Timing/>
-            </div>
-            <Location/>
-            <Details/>
-            <RSVP/>
-            <Countdown/>
-            <Footer/>
-        </main>
+        <>
+            <Welcome />
+            <main className="app">
+                <Hero/>
+                <div className="timing">
+                    <Calendar/>
+                    <Timing/>
+                </div>
+                <Location/>
+                <Details/>
+                <RSVP/>
+                <Countdown/>
+                <Footer/>
+            </main>
+        </>
     );
 }
 

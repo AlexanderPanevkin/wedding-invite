@@ -45,7 +45,7 @@ export const Location = () => {
                                 rel="noopener noreferrer"
                                 className="map-nav-btn"
                             >
-                                Нажмите чтобы открыть карту
+                                Нажмите, чтобы открыть карту
                             </a>
                         </div>
                     </div>
