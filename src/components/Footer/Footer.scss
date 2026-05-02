@@ -1,15 +1,17 @@
 .footer {
-  padding: 30px 0; // Отступы сверху и снизу, чтобы блок имел высоту
+  padding: 10px 0; // Отступы сверху и снизу, чтобы блок имел высоту
 
   .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    //margin: 0 auto;
+    //padding: 0 20px;
 
-    // Используем flex для центрирования картинки
+    // Используем flex для центрирования картинок вертикально
     display: flex;
+    flex-direction: column; // Одна картинка под другой
     justify-content: center;
     align-items: center;
+    //gap: 20px; // Отступ между картинками
   }
 
   .footer-img {
@@ -23,7 +25,7 @@
 // Адаптив для мобильных
 @media (max-width: 768px) {
   .footer {
-    padding: 40px 0;
+    //padding: 40px 0;
 
     .footer-img {
       max-width: 90%; // На телефонах можно сделать чуть шире относительно экрана
