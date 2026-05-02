@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import envelopeImg from '../../assets/Envelope.png.webp';
 import './Welcome.scss';
 
+const MUSIC_URL = `${import.meta.env.BASE_URL}italian-music.mp3`;
+
 export const Welcome = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [isClosing, setIsClosing] = useState(false);
@@ -10,7 +12,7 @@ export const Welcome = () => {
     useEffect(() => {
         if (isVisible) {
             document.body.style.overflow = 'hidden';
-            const audio = new Audio('/italian-music.mp3'); // 🔥 прямой путь из public
+            const audio = new Audio(MUSIC_URL);
             audio.preload = 'auto';
             audio.load();
         }
@@ -20,7 +22,7 @@ export const Welcome = () => {
     }, [isVisible]);
 
     const handleOpen = () => {
-        const audio = new Audio('/italian-music.mp3'); // 🔥 прямой путь из public
+        const audio = new Audio(MUSIC_URL);
         audio.loop = true;
         audio.volume = 0.5;
 
