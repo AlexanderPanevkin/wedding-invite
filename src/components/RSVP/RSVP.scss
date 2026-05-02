@@ -162,6 +162,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 
     input {
       display: none;
@@ -242,6 +245,9 @@
     transition: all 0.2s ease;
     background: transparent;
     min-height: 80px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 
     input {
       position: absolute;
