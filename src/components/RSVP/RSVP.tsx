@@ -176,7 +176,7 @@ export const RSVP = () => {
         <section className="rsvp-section">
 
             {/* 🔥 Обертка контента вынесена НА УРОВЕНЬ SECTION */}
-            <div className={`rsvp-content-wrapper ${status === 'success' ? 'blurred' : ''}`}>
+            <div className="rsvp-content-wrapper">
                 <div className="container">
                     <div className="rsvp-title">
                         <img src={rsvpTitle} alt="Анкета гостя" className="rsvp-title-img" />

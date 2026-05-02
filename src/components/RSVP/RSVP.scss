@@ -35,12 +35,6 @@
   .rsvp-content-wrapper {
     width: 100%;
     transition: filter 0.5s ease;
-
-    &.blurred {
-      filter: blur(8px);
-      pointer-events: none;
-      user-select: none;
-    }
   }
 
   .rsvp-wrapper {
@@ -375,6 +369,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.35);
   }
 
   .success-modal {
