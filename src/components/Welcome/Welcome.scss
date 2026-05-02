@@ -9,10 +9,13 @@
   justify-content: center;
   align-items: center;
   
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(175, 175, 175, 0.4);
-  
+  // 🔥 Одинаковый блюр для всех браузеров
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  // 🔥 Белый полупрозрачный фон вместо серого — блюр выглядит лучше
+  background: rgba(255, 255, 255, 0.25);
+
   transition: opacity 0.5s ease, visibility 0.5s ease;
   opacity: 1;
   visibility: visible;
