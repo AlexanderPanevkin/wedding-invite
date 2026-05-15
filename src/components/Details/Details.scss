@@ -1,29 +1,54 @@
 .details-wrapper {
+  position: relative;
+  overflow: visible;
+
   background-image: url('/src/assets/estate.png.webp');
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   padding-top: 15px;
-  .details {
-    height: auto;    // Сохраняет пропорции
 
-    // 2. Ограничение ширины на больших экранах (чтобы фото не было слишком растянутым)
-    // Можете менять 800px на нужное вам значение (например, 600px или 1000px)
+  .details {
+    height: auto;
     width: 100%;
     max-width: 460px;
-
-    // 3. Центрирование самой картинки внутри родительского блока
     display: block;
     margin: 0 auto;
     position: relative;
     z-index: 10;
     bottom: -24px;
+
     @media (min-width: 768px) {
-
-        bottom: -28px;
-
+      bottom: -28px;
     }
   }
 
-}
+  .cloud {
+    position: absolute;
+    max-width: 250px;
+    pointer-events: none;
+    z-index: 10;
+    filter: blur(0.5px);
+    will-change: transform; // 🔥 Оптимизация для плавной анимации
+  }
 
+  .cloud-1 {
+    top:0;
+    left: 0; // Начальная позиция (до начала анимации x)
+  }
+  .cloud-2 {
+    max-width: 200px;
+    top:0;
+    left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .cloud-1 {
+      max-width: 230px;
+    }
+    .cloud-2 {
+      max-width: 160px;
+      top: 20%;
+    }
+  }
+}

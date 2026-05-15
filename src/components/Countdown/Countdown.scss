@@ -1,10 +1,13 @@
 .countdown-section {
   padding: 0;
   text-align: center;
+  position: relative;      // 🔥 Для позиционирования облаков
+  overflow: visible;       // 🔥 Разрешаем облакам вылетать за границы
 
   .container {
     max-width: 1200px;
     margin: -40px auto auto auto;
+    position: relative;    // 🔥 Чтобы облака позиционировались относительно контейнера
 
     .row {
       display: flex;
@@ -12,27 +15,19 @@
     }
 
     .ring {
-      height: auto;    // Сохраняет пропорции
-
-      // 2. Ограничение ширины на больших экранах (чтобы фото не было слишком растянутым)
-      // Можете менять 800px на нужное вам значение (например, 600px или 1000px)
+      height: auto;
       width: 100%;
       max-width: 600px;
-
-      // 3. Центрирование самой картинки внутри родительского блока
       display: block;
-      //margin: -20 auto auto auto;
-
-      // 5. Отступы вокруг картинки (чтобы текст сверху/снизу не прилипал)
+      z-index: 10;
     }
   }
 
   .countdown-title {
-
     font-size: 2rem;
     color: #333;
     margin-bottom: 40px;
-    font-weight: 300; // Тонкий шрифт выглядит элегантнее
+    font-weight: 300;
 
     @media (max-width: 768px) {
       font-size: 1.5rem;
@@ -65,9 +60,9 @@
   .timer-value {
     font-size: 3.5rem;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.49); // Золотой цвет цифр
+    color: rgba(0, 0, 0, 0.49);
     line-height: 1;
-    font-family: 'Playfair Display', serif; // Если у вас подключен этот шрифт
+    font-family: 'Playfair Display', serif;
 
     @media (max-width: 768px) {
       font-size: 2rem;
@@ -91,7 +86,7 @@
     font-size: 3rem;
     color: #ddd;
     font-weight: 300;
-    margin-top: -20px; // Чуть поднимем двоеточие
+    margin-top: -20px;
 
     @media (max-width: 768px) {
       font-size: 1.5rem;
@@ -99,3 +94,4 @@
     }
   }
 }
+

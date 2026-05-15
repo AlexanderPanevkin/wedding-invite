@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import './Countdown.scss';
 import ring from "../../assets/ring.png.webp";
 
-// 🔥 УСТАНОВИТЕ ДАТУ ВАШЕЙ СВАДЬБЫ ЗДЕСЬ
+
 // Формат: ГГГГ-ММ-ДДTЧЧ:ММ:СС
 const WEDDING_DATE = new Date('2026-08-16T15:30:00').getTime();
 
@@ -34,11 +34,14 @@ export const Countdown = () => {
             }
         }, 1000);
 
+
+
         return () => clearInterval(interval);
     }, []);
 
     // Функция для добавления ведущего нуля (05 вместо 5)
     const formatTime = (num: number) => num.toString().padStart(2, '0');
+
 
     return (
         <section className="countdown-section">
