@@ -35,7 +35,7 @@ export const Timing = () => {
     // 2. Мобильные траектории (упрощенные значения)
     // Подберите эти числа под мобильную версию картинки
     const mobileCarX = useTransform(scrollYProgress, [0.25, 0.27, 0.30, 0.66, 0.75], [0, -50, -65, 105, -45]);
-    const mobileCarY = useTransform(scrollYProgress, [0.25, 0.27, 0.30, 0.66, 0.75], [0, 50, 90, 225, 310]);
+    const mobileCarY = useTransform(scrollYProgress, [0.25, 0.27, 0.30, 0.66, 0.75], [0, 50, 90, 225, 300]);
     const mobileCloudX = useTransform(scrollYProgress, [0, 0.5, 1], [0, 230, 0]);
 
     return (
