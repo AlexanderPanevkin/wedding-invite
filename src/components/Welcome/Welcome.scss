@@ -8,18 +8,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  // 🔥 Одинаковый блюр для всех браузеров
+
+  // 🔥 Блюр: одинаковые значения везде
   backdrop-filter: blur(25px) !important;
   -webkit-backdrop-filter: blur(25px) !important;
 
-  // 🔥 Белый полупрозрачный фон вместо серого — блюр выглядит лучше
-  background: rgba(255, 255, 255, 0.25) !important;
-  @supports not (backdrop-filter: blur(20px)) {
-    background: rgba(255, 255, 255, 0.25) !important; // Просто более непрозрачный фон
+  background: rgba(124, 102, 102, 0.25) !important;
+
+  // 🔥 Фолбэк: ТОЧНО такое же значение в @supports + более плотный фон
+  @supports not (backdrop-filter: blur(25px)) {
+    background: rgba(124, 102, 102, 0.85) !important;
   }
+
+  // 🔥 Триггеры для аппаратного ускорения
   transform: translateZ(0);
   will-change: backdrop-filter;
+
   transition: opacity 0.5s ease, visibility 0.5s ease;
   opacity: 1;
   visibility: visible;
@@ -68,12 +72,9 @@
   color: #4a4a4a;
   border: 1.5px solid rgba(212, 175, 55, 0.5);
   border-radius: 50%;
-  //font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.4s ease;
-  //text-transform: uppercase;
-  //letter-spacing: 2px;
   font-family: 'Lato', sans-serif;
   display: flex;
   align-items: center;
@@ -85,37 +86,9 @@
     background: rgba(212, 175, 55, 0.15);
     border-color: #d4af37;
     color: #1c1c1c;
-    //transform: translateX(-50%) translateY(-3px);
-    //box-shadow: 0 10px 40px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(255,255,255,0.1);
   }
-
-  // Старые стили
-  // width: 100px;
-  // height: 100px;
-  // padding: 0;
-  // background: #d4af37;
-  // color: #fff;
-  // border: none;
-  // border-radius: 50%;
-  // font-size: 1rem;
-  // font-weight: 600;
-  // cursor: pointer;
-  // transition: all 0.3s ease;
-  // text-transform: uppercase;
-  // letter-spacing: 1px;
-  // font-family: 'Lato', sans-serif;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // text-align: center;
-
-  // &:hover {
-  //   background: #b8962e;
-  //   transform: translateX(-50%) translateY(-2px);
-  //   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
-  // }
 }
-//}
+
 
 @keyframes welcomePopIn {
   from {
