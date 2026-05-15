@@ -15,7 +15,11 @@
 
   // 🔥 Белый полупрозрачный фон вместо серого — блюр выглядит лучше
   background: rgba(255, 255, 255, 0.25);
-
+  @supports not (backdrop-filter: blur(20px)) {
+    background: rgba(255, 255, 255, 0.85); // Просто более непрозрачный фон
+  }
+  transform: translateZ(0);
+  will-change: backdrop-filter;
   transition: opacity 0.5s ease, visibility 0.5s ease;
   opacity: 1;
   visibility: visible;
