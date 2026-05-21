@@ -37,7 +37,7 @@ export const Details = () => {
                 alt=""
                 className="cloud cloud-1"
                 animate={{
-                    x: isMobile ? [250, 180, 250] : [710, 660, 710],
+                    x: isMobile ? [250, 180, 250] : [1000, 950, 1000],
                     y: isMobile ? [-35, -32, -35] : [-20, -17, -20],
                 }}
                 transition={{
@@ -59,7 +59,7 @@ export const Details = () => {
                 className="cloud cloud-2"
                 animate={{
                     // 🔥 Обратите внимание: x от положительного к отрицательному = движение справа налево
-                    x: isMobile ? [-30, 50, -30] : [290, 340, 290],
+                    x: isMobile ? [-30, 50, -30] : [710, 760, 710],
                     y: isMobile ? [260, 263, 260] : [450, 455, 450], // Покачивание ВНИЗ (положительное значение)
                 }}
                 transition={{
