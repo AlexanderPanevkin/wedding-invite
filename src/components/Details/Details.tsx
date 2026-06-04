@@ -58,13 +58,12 @@ export const Details = () => {
                 alt=""
                 className="cloud cloud-2"
                 animate={{
-                    // 🔥 Обратите внимание: x от положительного к отрицательному = движение справа налево
-                    x: isMobile ? [-30, 50, -30] : [710, 760, 710],
-                    y: isMobile ? [260, 263, 260] : [450, 455, 450], // Покачивание ВНИЗ (положительное значение)
+                    x: isMobile ? [-70, -10, -70] : [650, 710, 650],
+                    y: isMobile ? [260, 263, 260] : [510, 513, 510], // Покачивание ВНИЗ (положительное значение)
                 }}
                 transition={{
                     // 🔥 Другая скорость для разнообразия
-                    x: { duration: isMobile ? 50 : 20, repeat: Infinity, ease: "linear" },
+                    x: { duration: isMobile ? 30 : 20, repeat: Infinity, ease: "linear" },
                     y: { duration: isMobile ? 7 : 5, repeat: Infinity, ease: "easeInOut" },
                 }}
             />
